@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Scheduly--an app for the awesome ones.">
+    <meta name="author" content="Patrick Wee">
+    <link rel="icon" href="../../favicon.ico">
+    <title>Scheduly</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="page-header">
+        <h1>Scheduly</h1>
+        <h4>Get stuff done, quickly.</h4>
+      </div>
+      <p class="lead">You can now easily create workflows for your projects.</p>
+    </div>
+
+    <div class="container">
+      <h2>Basic Information</h2>
+      <div class="row">
+        <div class='col-sm-12'>
+          <input type='text' class="form-control input-lg" placeholder="Tell me the name of this Project!" />
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container milestones">
+      <h2>Milestones</h2>
+
+      <!-- Preset Milestone 1 -->
+      <div class="row milestone">
+        <div class='col-md-3'>
+          <input type='text' class="form-control input-lg milestonename" placeholder="Name of Milestone"/>
+        </div>
+        <div class='col-md-3'>
+          <div class="form-group">
+            <div class='input-group date'>
+              <input type='text' class="form-control input-lg datetimepicker start-time" placeholder="Start Date and Time"/>
+            </div>
+          </div>
+        </div>
+        <div class='col-md-3'>
+          <div class="form-group">
+            <div class='input-group date'>
+              <input type='text' class="form-control input-lg datetimepicker end-time" placeholder="End Date and Time" />
+            </div>
+          </div>
+        </div>
+        <div class='col-md-2'>
+          <button type="button" class="btn btn-lg btn-primary alldaybutton">
+            <span class="glyphicon glyphicon glyphicon-dashboard">AllDay</span>&nbsp;
+          </button>
+        </div>
+        <div class='col-md-1'>
+          <button type="button" class="btn btn-lg btn-danger deletebutton">
+            <span class="glyphicon glyphicon-trash"></span>&nbsp;
+          </button>
+        </div>
+      </div>
+
+      <!-- Preset Milestone 2 -->
+      <div class="row milestone">
+        <div class='col-sm-3'>
+          <input type='text' class="form-control input-lg milestonename" placeholder="Name of Milestone"/>
+        </div>
+        <div class='col-sm-4'>
+          <div class="form-group">
+            <div class='input-group date'>
+              <input type='text' class="form-control input-lg datetimepicker start-time" placeholder="Start Date and Time"/>
+              <span class="input-group-addon">
+                <span class="glyphicon glyphicon-time"></span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class='col-sm-4'>
+          <div class="form-group">
+            <div class='input-group date'>
+              <input type='text' class="form-control input-lg datetimepicker end-time" placeholder="End Date and Time" />
+              <span class="input-group-addon">
+                <span class="glyphicon glyphicon-time"></span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class='col-sm-1'>
+          <button type="button" class="btn btn-lg btn-danger deletebutton">
+            <span class="glyphicon glyphicon-trash"></span>&nbsp;
+          </button>
+        </div>
+      </div>
+
+      <!-- Preset Milestone 3 -->
+      <div class="row milestone">
+        <div class='col-sm-3'>
+          <input type='text' class="form-control input-lg milestonename" placeholder="Name of Milestone"/>
+        </div>
+        <div class='col-sm-4'>
+          <div class="form-group">
+            <div class='input-group date'>
+              <input type='text' class="form-control input-lg datetimepicker start-time" placeholder="Start Date and Time"/>
+              <span class="input-group-addon">
+                <span class="glyphicon glyphicon-time"></span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class='col-sm-4'>
+          <div class="form-group">
+            <div class='input-group date'>
+              <input type='text' class="form-control input-lg datetimepicker end-time" placeholder="End Date and Time" />
+              <span class="input-group-addon">
+                <span class="glyphicon glyphicon-time"></span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class='col-sm-1'>
+          <button type="button" class="btn btn-lg btn-danger deletebutton">
+            <span class="glyphicon glyphicon-trash"></span>&nbsp;
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <button type="button" class="btn btn-default btn-sm add_milestone">Add another milestone!</button>
+      </div>
+    </div>
+
+    <div class="container">
+      <h2>Download</h2>
+      <div class="row">
+        <button type="button" class="btn btn-primary btn-lg btn-block download">Download</button>
+      </div>
+    </div>
+  </body>
+</html>
