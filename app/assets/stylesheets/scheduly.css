@@ -1,10 +1,11 @@
 @import "bootstrap-sprockets";
-@import "bootstrap";
+@import 'bootstrap';
+@import 'bootstrap-datetimepicker';
 
 footer {
-  padding: 0px 0px 10px 50px;
+  padding: 0 0 10px 50px;
 }
 
 .download {
-  padding: 0px 0px 15px 0px;
+  padding: 0 0 15px 0;
 }
