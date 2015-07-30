@@ -1,0 +1,10 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+footer {
+  padding: 0px 0px 10px 50px;
+}
+
+.download {
+  padding: 0px 0px 15px 0px;
+}

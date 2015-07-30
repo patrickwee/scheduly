@@ -87,8 +87,8 @@ var prepareFile = function(){
       temp.push(enddates[i]);
       temp.push(endtimes[i]);
       temp.push("FALSE");
-      temp.push("A cool event!");
-      temp.push("Somewhere over the rainbow!");
+      temp.push("A cool event work flow powered by Nusii.");
+      temp.push(" ");
       temp.push("FALSE");
       console.log(temp);
       finalinfo.push(temp);
