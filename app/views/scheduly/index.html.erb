@@ -20,174 +20,176 @@
       <p class="lead">You can now easily create workflows for your projects.</p>
     </div>
 
-    <div class="container">
-      <h2>Basic Information</h2>
-      <div class="row">
-        <div class='col-sm-12'>
-          <input type='text' class="form-control input-lg" placeholder="Tell me the name of this Project!" />
-        </div>
-      </div>
-    </div>
-
-
-    <div class="container milestones">
-      <h2>Milestones</h2>
-
-      <!-- Preset Milestone 1 -->
-            <div class="row milestone">
-        <div class='col-sm-3'>
-          <input type='text' class="form-control input-lg milestonename" placeholder="Name of Milestone"/>
-        </div>
-        <div class='col-sm-4'>
-          <div class="form-group">
-            <div class='input-group date'>
-              <input type='text' class="form-control input-lg datetimepicker start-time" placeholder="Start Date and Time"/>
-              <span class="input-group-addon">
-                <span class="glyphicon glyphicon-time"></span>
-              </span>
-            </div>
+    <form class="download_csv">
+      <div class="container">
+        <h2>Basic Information</h2>
+        <div class="row">
+          <div class='col-sm-12'>
+            <input type='text' class="form-control input-lg" placeholder="Tell me the name of this Project!" />
           </div>
-        </div>
-        <div class='col-sm-4'>
-          <div class="form-group">
-            <div class='input-group date'>
-              <input type='text' class="form-control input-lg datetimepicker end-time" placeholder="End Date and Time" />
-              <span class="input-group-addon">
-                <span class="glyphicon glyphicon-time"></span>
-              </span>
-            </div>
-          </div>
-        </div>
-        <div class='col-sm-1'>
-          <button type="button" class="btn btn-lg btn-danger deletebutton">
-            <span class="glyphicon glyphicon-trash"></span>&nbsp;
-          </button>
         </div>
       </div>
 
-      <!--Experimental Block<div class="row r">
-        <div class='col-md-3'>
-          <input type='text' class="form-control input-lg milestonename" placeholder="Name of Milestone"/>
-        </div>
-        <div class='col-md-3'>
-          <div class="form-group">
-            <div class='input-group date'>
-              <input type='text' class="form-control input-lg datetimepicker start-time" placeholder="Start Date and Time"/>
-            </div>
-          </div>
-        </div>
-        <div class='col-md-3'>
-          <div class="form-group">
-            <div class='input-group date'>
-              <input type='text' class="form-control input-lg datetimepicker end-time" placeholder="End Date and Time" />
-            </div>
-          </div>
-        </div>
-        <div class='col-md-2'>
-          <button type="button" class="btn btn-lg btn-primary alldaybutton">
-            <span class="glyphicon glyphicon glyphicon-dashboard">AllDay</span>&nbsp;
-          </button>
-        </div>
-        <div class='col-md-1'>
-          <button type="button" class="btn btn-lg btn-danger deletebutton">
-            <span class="glyphicon glyphicon-trash"></span>&nbsp;
-          </button>
-        </div>
-      </div>-->
 
-      <!-- Preset Milestone 2 -->
-      <div class="row milestone">
-        <div class='col-sm-3'>
-          <input type='text' class="form-control input-lg milestonename" placeholder="Name of Milestone"/>
-        </div>
-        <div class='col-sm-4'>
-          <div class="form-group">
-            <div class='input-group date'>
-              <input type='text' class="form-control input-lg datetimepicker start-time" placeholder="Start Date and Time"/>
-              <span class="input-group-addon">
-                <span class="glyphicon glyphicon-time"></span>
-              </span>
+      <div class="container milestones">
+        <h2>Milestones</h2>
+
+        <!-- Preset Milestone 1 -->
+        <div class="row milestone">
+          <div class='col-sm-3'>
+            <input type='text' name="milestones[0][name]" class="form-control input-lg milestonename" placeholder="Name of Milestone"/>
+          </div>
+          <div class='col-sm-4'>
+            <div class="form-group">
+              <div class='input-group date'>
+                <input type='text' name="milestones[0][start_time]" class="form-control input-lg datetimepicker start-time" placeholder="Start Date and Time"/>
+                <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-time"></span>
+                </span>
+              </div>
             </div>
           </div>
-        </div>
-        <div class='col-sm-4'>
-          <div class="form-group">
-            <div class='input-group date'>
-              <input type='text' class="form-control input-lg datetimepicker end-time" placeholder="End Date and Time" />
-              <span class="input-group-addon">
-                <span class="glyphicon glyphicon-time"></span>
-              </span>
+          <div class='col-sm-4'>
+            <div class="form-group">
+              <div class='input-group date'>
+                <input type='text' name="milestones[0][end_time]"class="form-control input-lg datetimepicker end-time" placeholder="End Date and Time" />
+                <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-time"></span>
+                </span>
+              </div>
             </div>
           </div>
+          <div class='col-sm-1'>
+            <button type="button" class="btn btn-lg btn-danger deletebutton">
+              <span class="glyphicon glyphicon-trash"></span>&nbsp;
+            </button>
+          </div>
         </div>
-        <div class='col-sm-1'>
-          <button type="button" class="btn btn-lg btn-danger deletebutton">
-            <span class="glyphicon glyphicon-trash"></span>&nbsp;
-          </button>
+
+        <!--Experimental Block<div class="row r">
+          <div class='col-md-3'>
+            <input type='text' class="form-control input-lg milestonename" placeholder="Name of Milestone"/>
+          </div>
+          <div class='col-md-3'>
+            <div class="form-group">
+              <div class='input-group date'>
+                <input type='text' class="form-control input-lg datetimepicker start-time" placeholder="Start Date and Time"/>
+              </div>
+            </div>
+          </div>
+          <div class='col-md-3'>
+            <div class="form-group">
+              <div class='input-group date'>
+                <input type='text' class="form-control input-lg datetimepicker end-time" placeholder="End Date and Time" />
+              </div>
+            </div>
+          </div>
+          <div class='col-md-2'>
+            <button type="button" class="btn btn-lg btn-primary alldaybutton">
+              <span class="glyphicon glyphicon glyphicon-dashboard">AllDay</span>&nbsp;
+            </button>
+          </div>
+          <div class='col-md-1'>
+            <button type="button" class="btn btn-lg btn-danger deletebutton">
+              <span class="glyphicon glyphicon-trash"></span>&nbsp;
+            </button>
+          </div>
+        </div>-->
+
+        <!-- Preset Milestone 2 -->
+        <div class="row milestone">
+          <div class='col-sm-3'>
+            <input type='text' name="milestones[1][name]" class="form-control input-lg milestonename" placeholder="Name of Milestone"/>
+          </div>
+          <div class='col-sm-4'>
+            <div class="form-group">
+              <div class='input-group date'>
+                <input type='text' name="milestones[1][start_time]" class="form-control input-lg datetimepicker start-time" placeholder="Start Date and Time"/>
+                <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-time"></span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class='col-sm-4'>
+            <div class="form-group">
+              <div class='input-group date'>
+                <input type='text' name="milestones[1][end_time]" class="form-control input-lg datetimepicker end-time" placeholder="End Date and Time" />
+                <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-time"></span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class='col-sm-1'>
+            <button type="button" class="btn btn-lg btn-danger deletebutton">
+              <span class="glyphicon glyphicon-trash"></span>&nbsp;
+            </button>
+          </div>
+        </div>
+
+        <!-- Preset Milestone 3 -->
+        <div class="row milestone">
+          <div class='col-sm-3'>
+            <input type='text' class="form-control input-lg milestonename" placeholder="Name of Milestone"/>
+          </div>
+          <div class='col-sm-4'>
+            <div class="form-group">
+              <div class='input-group date'>
+                <input type='text' class="form-control input-lg datetimepicker start-time" placeholder="Start Date and Time"/>
+                <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-time"></span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class='col-sm-4'>
+            <div class="form-group">
+              <div class='input-group date'>
+                <input type='text' class="form-control input-lg datetimepicker end-time" placeholder="End Date and Time" />
+                <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-time"></span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class='col-sm-1'>
+            <button type="button" class="btn btn-lg btn-danger deletebutton">
+              <span class="glyphicon glyphicon-trash"></span>&nbsp;
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <button type="button" class="btn btn-default btn-sm add_milestone">Add another milestone!</button>
         </div>
       </div>
 
-      <!-- Preset Milestone 3 -->
-      <div class="row milestone">
-        <div class='col-sm-3'>
-          <input type='text' class="form-control input-lg milestonename" placeholder="Name of Milestone"/>
-        </div>
-        <div class='col-sm-4'>
-          <div class="form-group">
-            <div class='input-group date'>
-              <input type='text' class="form-control input-lg datetimepicker start-time" placeholder="Start Date and Time"/>
-              <span class="input-group-addon">
-                <span class="glyphicon glyphicon-time"></span>
-              </span>
-            </div>
-          </div>
-        </div>
-        <div class='col-sm-4'>
-          <div class="form-group">
-            <div class='input-group date'>
-              <input type='text' class="form-control input-lg datetimepicker end-time" placeholder="End Date and Time" />
-              <span class="input-group-addon">
-                <span class="glyphicon glyphicon-time"></span>
-              </span>
-            </div>
-          </div>
-        </div>
-        <div class='col-sm-1'>
-          <button type="button" class="btn btn-lg btn-danger deletebutton">
-            <span class="glyphicon glyphicon-trash"></span>&nbsp;
-          </button>
+
+      <div class="container">
+        <h2>Next Steps</h2>
+        <div class="row">
+          <p>
+            <ol>
+              <li><strong>Download the CSV file.</strong></li>
+              <li><strong>Sign-in to your Google Calendar.</strong> You can click <a href="http://calendar.google.com" target="_blank">here</a>. You will be redirected to Google Calendar.
+              <li><strong>Create a new calendar.</strong> This will make sure that if you’re done or if you need to edit something in this work plan, it will be easy! To do this, simply go to your Calendars section on the left hand side, click the drop down icon, and select “Create Calendar.”</li>
+              <li><strong>Import Calendar.</strong> On left hand side, you will see a group of calendars called “Other Calendars.” Click the drop down icon, and from there, select Import Calendar. Upload the CSV file. Select the calendar you just created.</li>
+              <li><strong>DONE!</strong> You have your nice calendar created!</li>
+          </p>
         </div>
       </div>
 
-    </div>
-
-    <div class="container">
-      <div class="row">
-        <button type="button" class="btn btn-default btn-sm add_milestone">Add another milestone!</button>
+      <div class="container">
+        <h2>Download</h2>
+        <div class="row download">
+          <input type="submit" class="btn btn-primary btn-lg btn-block download" value="Download">
+        </div>
       </div>
-    </div>
-
-
-    <div class="container">
-      <h2>Next Steps</h2>
-      <div class="row">
-        <p>
-          <ol>
-            <li><strong>Download the CSV file.</strong></li>
-            <li><strong>Sign-in to your Google Calendar.</strong> You can click <a href="http://calendar.google.com" target="_blank">here</a>. You will be redirected to Google Calendar.
-            <li><strong>Create a new calendar.</strong> This will make sure that if you’re done or if you need to edit something in this work plan, it will be easy! To do this, simply go to your Calendars section on the left hand side, click the drop down icon, and select “Create Calendar.”</li>
-            <li><strong>Import Calendar.</strong> On left hand side, you will see a group of calendars called “Other Calendars.” Click the drop down icon, and from there, select Import Calendar. Upload the CSV file. Select the calendar you just created.</li>
-            <li><strong>DONE!</strong> You have your nice calendar created!</li>
-        </p>
-      </div>
-    </div>
-
-    <div class="container">
-      <h2>Download</h2>
-      <div class="row download">
-        <button type="button" class="btn btn-primary btn-lg btn-block download">Download</button>
-      </div>
-    </div>
+    </form>
 
 
     <hr>

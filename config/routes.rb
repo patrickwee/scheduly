@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root "scheduly#index"
+  resources :milestones, only: [:create]
 
   # get 'hello' => "welcome#hello"
 
