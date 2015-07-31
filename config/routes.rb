@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
   root "scheduly#index"
-  get 'scheduly/:index' => 'scheduly#index'
+
+  # get 'hello' => "welcome#hello"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
