@@ -66,36 +66,6 @@
           </div>
         </div>
 
-        <!--Experimental Block<div class="row r">
-          <div class='col-md-3'>
-            <input type='text' class="form-control input-lg milestonename" placeholder="Name of Milestone"/>
-          </div>
-          <div class='col-md-3'>
-            <div class="form-group">
-              <div class='input-group date'>
-                <input type='text' class="form-control input-lg datetimepicker start-time" placeholder="Start Date and Time"/>
-              </div>
-            </div>
-          </div>
-          <div class='col-md-3'>
-            <div class="form-group">
-              <div class='input-group date'>
-                <input type='text' class="form-control input-lg datetimepicker end-time" placeholder="End Date and Time" />
-              </div>
-            </div>
-          </div>
-          <div class='col-md-2'>
-            <button type="button" class="btn btn-lg btn-primary alldaybutton">
-              <span class="glyphicon glyphicon glyphicon-dashboard">AllDay</span>&nbsp;
-            </button>
-          </div>
-          <div class='col-md-1'>
-            <button type="button" class="btn btn-lg btn-danger deletebutton">
-              <span class="glyphicon glyphicon-trash"></span>&nbsp;
-            </button>
-          </div>
-        </div>-->
-
         <!-- Preset Milestone 2 -->
         <div class="row milestone">
           <div class='col-sm-3'>
@@ -131,12 +101,12 @@
         <!-- Preset Milestone 3 -->
         <div class="row milestone">
           <div class='col-sm-3'>
-            <input type='text' class="form-control input-lg milestonename" placeholder="Name of Milestone"/>
+            <input type='text' name="milestones[2][name]" class="form-control input-lg milestonename" placeholder="Name of Milestone"/>
           </div>
           <div class='col-sm-4'>
             <div class="form-group">
               <div class='input-group date'>
-                <input type='text' class="form-control input-lg datetimepicker start-time" placeholder="Start Date and Time"/>
+                <input type='text' name="milestones[2][start_time]" class="form-control input-lg datetimepicker start-time" placeholder="Start Date and Time"/>
                 <span class="input-group-addon">
                   <span class="glyphicon glyphicon-time"></span>
                 </span>
@@ -146,7 +116,7 @@
           <div class='col-sm-4'>
             <div class="form-group">
               <div class='input-group date'>
-                <input type='text' class="form-control input-lg datetimepicker end-time" placeholder="End Date and Time" />
+                <input type='text' name="milestones[2][end_time]" class="form-control input-lg datetimepicker end-time" placeholder="End Date and Time" />
                 <span class="input-group-addon">
                   <span class="glyphicon glyphicon-time"></span>
                 </span>
@@ -159,6 +129,39 @@
             </button>
           </div>
         </div>
+
+        <script id="MilestoneTemplate" type="x-tmpl-mustache">
+          <div class='row milestone'>
+            <div class='col-sm-3'>
+              <input type='text' name="milestone[{{number}}][name]"class='form-control input-lg milestonename' placeholder='Name of Milestone' />
+            </div>
+            <div class='col-sm-4'>
+                <div class='form-group'>
+                    <div class='input-group date'>
+                        <input type='text' class='form-control input-lg datetimepicker start-time' placeholder='Start Date and Time'/>
+                        <span class='input-group-addon'>
+                            <span class='glyphicon glyphicon-time'></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class='col-sm-4'>
+                <div class='form-group'>
+                    <div class='input-group date'>
+                        <input type='text' class='form-control input-lg datetimepicker end-time' placeholder='End Date and Time'/>
+                        <span class='input-group-addon'>
+                            <span class='glyphicon glyphicon-time'></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class='col-sm-1'>
+                <button type='button' class='btn btn-lg btn-danger deletebutton'>
+                  <span class='glyphicon glyphicon-trash'></span>&nbsp;
+                </button>
+              </div>
+          </div>
+        </script>
 
       </div>
 

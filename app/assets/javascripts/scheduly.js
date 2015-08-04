@@ -1,21 +1,32 @@
 // TODOS
-// * Make sure that the 3rd milestone works
+// *-- Make sure that the 3rd milestone works
 // * Make sure that add new milestone works
 // * Make use of a template system
 // * Some basic validation in the dates
+
+var counter = 3;
 
 $(document).ready(function () {
   initDateTimePickers();
   initDeleteButtons();
   initAddMilestone();
   initDownloadCSVForm();
+  //moustacheTrial();
 });
+
+var moustacheTrial= function(){
+  var template = $('#template').html();
+  console.log(template);
+  Mustache.parse(template);   // optional, speeds up future uses
+  var rendered = Moustache.render(template);
+  $('#target').html(rendered);
+};
 
 var initDownloadCSVForm = function(){
   $('form.download_csv').on('submit', function(e){
     e.preventDefault();
     // Gather all the form data and send it to server
-    data = $(this).serialize()
+    data = $(this).serialize();
 
     $.ajax({
       type: 'POST',
@@ -23,7 +34,7 @@ var initDownloadCSVForm = function(){
       data: data,
       dataType: 'json',
       success: function(e){
-        downloadFile('Projectworkflow.csv', e.file)
+        downloadFile('Projectworkflow.csv', e.file);
       },
       error: function(e){
         console.log('error', e);
@@ -42,7 +53,7 @@ var downloadFile = function(filename, data){
   document.body.appendChild(element);
   element.click();
   document.body.removeChild(element);
-}
+};
 
 var initDeleteButtons = function(){
   $(document).on('click', '.milestone .deletebutton', function(e){
@@ -80,14 +91,15 @@ var initAddMilestone = function() {
 };
 
 var addMileStone = function(){
+  var milestone = $('#template');
   milestone = $("<div class='row milestone'> \
       <div class='col-sm-3'>\
-        <input type='text' class='form-control input-lg milestonename' placeholder='Name of Milestone' /> \
+        <input type='text' name='milestone["+counter+"][name]' class='form-control input-lg milestonename' placeholder='Name of Milestone' /> \
       </div> \
       <div class='col-sm-4'> \
           <div class='form-group'> \
               <div class='input-group date'> \
-                  <input type='text' class='form-control input-lg datetimepicker start-time' placeholder='Start Date and Time'/> \
+                  <input type='text' name='milestone["+counter+"][start-time]' class='form-control input-lg datetimepicker start-time' placeholder='Start Date and Time'/> \
                   <span class='input-group-addon'> \
                       <span class='glyphicon glyphicon-time'></span> \
                   </span> \
@@ -97,7 +109,7 @@ var addMileStone = function(){
       <div class='col-sm-4'> \
           <div class='form-group'> \
               <div class='input-group date'> \
-                  <input type='text' class='form-control input-lg datetimepicker end-time' placeholder='End Date and Time'/> \
+                  <input type='text' name='milestone["+counter+"][end-time]'class='form-control input-lg datetimepicker end-time' placeholder='End Date and Time'/> \
                   <span class='input-group-addon'> \
                       <span class='glyphicon glyphicon-time'></span> \
                   </span> \
@@ -110,7 +122,7 @@ var addMileStone = function(){
           </button> \
         </div> \
     </div> ");
-
+  console.log("MILESTONE", milestone);
   button = milestone.find('button');
   initDeleteButton(button);
 
