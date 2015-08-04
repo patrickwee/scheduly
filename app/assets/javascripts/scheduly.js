@@ -1,9 +1,3 @@
-// TODOS
-// *-- Make sure that the 3rd milestone works
-// * Make sure that add new milestone works
-// * Make use of a template system
-// * Some basic validation in the dates
-
 var counter = 3;
 
 $(document).ready(function () {
@@ -11,16 +5,16 @@ $(document).ready(function () {
   initDeleteButtons();
   initAddMilestone();
   initDownloadCSVForm();
-  //moustacheTrial();
+
+  initLinkagesOnClick(0);
+  initLinkagesOnClick(1);
+  initLinkagesOnClick(2);
+
 });
 
-var moustacheTrial= function(){
-  var template = $('#template').html();
-  console.log(template);
-  Mustache.parse(template);   // optional, speeds up future uses
-  var rendered = Moustache.render(template);
-  $('#target').html(rendered);
-};
+//*************
+//DOWNLOAD
+//*************
 
 var initDownloadCSVForm = function(){
   $('form.download_csv').on('submit', function(e){
@@ -55,6 +49,12 @@ var downloadFile = function(filename, data){
   document.body.removeChild(element);
 };
 
+
+
+//***************
+//INITIALIZATIONS
+//***************
+
 var initDeleteButtons = function(){
   $(document).on('click', '.milestone .deletebutton', function(e){
     e.preventDefault();
@@ -62,13 +62,6 @@ var initDeleteButtons = function(){
   });
 };
 
-var initDeleteButton = function (element){
-  element.on('click', '.milestone .deletebutton', function(e){
-    console.log('click');
-    e.preventDefault();
-    $(this).parents('.milestone').remove();
-  });
-};
 
 var initDateTimePickers = function(){
   $('.datetimepicker').datetimepicker({
@@ -76,12 +69,22 @@ var initDateTimePickers = function(){
   });
 };
 
-var initDateTimePicker = function(element){
-    console.log("Inside initDatetimepicker");
-    $(element).datetimepicker({
-      format: 'YYYY/MM/DD HH:mm'
-    });
+
+var initLinkagesOnClick = function (number){
+  console.log("inside linkages on click");
+  startnow = "#start" + number;
+  console.log(startnow);
+  endnow = "#end" + number;
+  console.log(endnow);
+
+  $(startnow).on("dp.change", function (e) {
+    $(endnow).data("DateTimePicker").minDate(e.date);
+  });
+  $(endnow).on("dp.change", function (e) {
+    $(startnow).data("DateTimePicker").maxDate(e.date);
+  });
 };
+
 
 var initAddMilestone = function() {
   $(document).on('click', '.add_milestone', function(e){
@@ -90,45 +93,26 @@ var initAddMilestone = function() {
   });
 };
 
+
+
+
+
+//***************
+//ADD MILESTONES
+//***************
+
 var addMileStone = function(){
-  var milestone = $('#template');
-  milestone = $("<div class='row milestone'> \
-      <div class='col-sm-3'>\
-        <input type='text' name='milestone["+counter+"][name]' class='form-control input-lg milestonename' placeholder='Name of Milestone' /> \
-      </div> \
-      <div class='col-sm-4'> \
-          <div class='form-group'> \
-              <div class='input-group date'> \
-                  <input type='text' name='milestone["+counter+"][start-time]' class='form-control input-lg datetimepicker start-time' placeholder='Start Date and Time'/> \
-                  <span class='input-group-addon'> \
-                      <span class='glyphicon glyphicon-time'></span> \
-                  </span> \
-              </div> \
-          </div> \
-      </div> \
-      <div class='col-sm-4'> \
-          <div class='form-group'> \
-              <div class='input-group date'> \
-                  <input type='text' name='milestone["+counter+"][end-time]'class='form-control input-lg datetimepicker end-time' placeholder='End Date and Time'/> \
-                  <span class='input-group-addon'> \
-                      <span class='glyphicon glyphicon-time'></span> \
-                  </span> \
-              </div> \
-          </div> \
-      </div> \
-      <div class='col-sm-1'> \
-          <button type='button' class='btn btn-lg btn-danger deletebutton'> \
-            <span class='glyphicon glyphicon-trash'></span>&nbsp; \
-          </button> \
-        </div> \
-    </div> ");
-  console.log("MILESTONE", milestone);
-  button = milestone.find('button');
-  initDeleteButton(button);
 
-  picker = milestone.find('.datetimepicker');
-
-  initDateTimePicker(picker);
+  var template = $('#milestone_template').html();
+  Mustache.parse(template); // optional, but makes stuff faster
+  var rendered = Mustache.render(template, {counter: counter});
+  milestone = $(rendered);
   $('.milestones').append(milestone);
+  initDateTimePickers();
+  initLinkagesOnClick(counter);
+
   counter++;
 };
+
+
+

@@ -33,136 +33,9 @@
 
       <div class="container milestones">
         <h2>Milestones</h2>
-
-        <!-- Preset Milestone 1 -->
-        <div class="row milestone">
-          <div class='col-sm-3'>
-            <input type='text' name="milestones[0][name]" class="form-control input-lg milestonename" placeholder="Name of Milestone"/>
-          </div>
-          <div class='col-sm-4'>
-            <div class="form-group">
-              <div class='input-group date'>
-                <input type='text' name="milestones[0][start_time]" class="form-control input-lg datetimepicker start-time" placeholder="Start Date and Time"/>
-                <span class="input-group-addon">
-                  <span class="glyphicon glyphicon-time"></span>
-                </span>
-              </div>
-            </div>
-          </div>
-          <div class='col-sm-4'>
-            <div class="form-group">
-              <div class='input-group date'>
-                <input type='text' name="milestones[0][end_time]"class="form-control input-lg datetimepicker end-time" placeholder="End Date and Time" />
-                <span class="input-group-addon">
-                  <span class="glyphicon glyphicon-time"></span>
-                </span>
-              </div>
-            </div>
-          </div>
-          <div class='col-sm-1'>
-            <button type="button" class="btn btn-lg btn-danger deletebutton">
-              <span class="glyphicon glyphicon-trash"></span>&nbsp;
-            </button>
-          </div>
-        </div>
-
-        <!-- Preset Milestone 2 -->
-        <div class="row milestone">
-          <div class='col-sm-3'>
-            <input type='text' name="milestones[1][name]" class="form-control input-lg milestonename" placeholder="Name of Milestone"/>
-          </div>
-          <div class='col-sm-4'>
-            <div class="form-group">
-              <div class='input-group date'>
-                <input type='text' name="milestones[1][start_time]" class="form-control input-lg datetimepicker start-time" placeholder="Start Date and Time"/>
-                <span class="input-group-addon">
-                  <span class="glyphicon glyphicon-time"></span>
-                </span>
-              </div>
-            </div>
-          </div>
-          <div class='col-sm-4'>
-            <div class="form-group">
-              <div class='input-group date'>
-                <input type='text' name="milestones[1][end_time]" class="form-control input-lg datetimepicker end-time" placeholder="End Date and Time" />
-                <span class="input-group-addon">
-                  <span class="glyphicon glyphicon-time"></span>
-                </span>
-              </div>
-            </div>
-          </div>
-          <div class='col-sm-1'>
-            <button type="button" class="btn btn-lg btn-danger deletebutton">
-              <span class="glyphicon glyphicon-trash"></span>&nbsp;
-            </button>
-          </div>
-        </div>
-
-        <!-- Preset Milestone 3 -->
-        <div class="row milestone">
-          <div class='col-sm-3'>
-            <input type='text' name="milestones[2][name]" class="form-control input-lg milestonename" placeholder="Name of Milestone"/>
-          </div>
-          <div class='col-sm-4'>
-            <div class="form-group">
-              <div class='input-group date'>
-                <input type='text' name="milestones[2][start_time]" class="form-control input-lg datetimepicker start-time" placeholder="Start Date and Time"/>
-                <span class="input-group-addon">
-                  <span class="glyphicon glyphicon-time"></span>
-                </span>
-              </div>
-            </div>
-          </div>
-          <div class='col-sm-4'>
-            <div class="form-group">
-              <div class='input-group date'>
-                <input type='text' name="milestones[2][end_time]" class="form-control input-lg datetimepicker end-time" placeholder="End Date and Time" />
-                <span class="input-group-addon">
-                  <span class="glyphicon glyphicon-time"></span>
-                </span>
-              </div>
-            </div>
-          </div>
-          <div class='col-sm-1'>
-            <button type="button" class="btn btn-lg btn-danger deletebutton">
-              <span class="glyphicon glyphicon-trash"></span>&nbsp;
-            </button>
-          </div>
-        </div>
-
-        <script id="MilestoneTemplate" type="x-tmpl-mustache">
-          <div class='row milestone'>
-            <div class='col-sm-3'>
-              <input type='text' name="milestone[{{number}}][name]"class='form-control input-lg milestonename' placeholder='Name of Milestone' />
-            </div>
-            <div class='col-sm-4'>
-                <div class='form-group'>
-                    <div class='input-group date'>
-                        <input type='text' class='form-control input-lg datetimepicker start-time' placeholder='Start Date and Time'/>
-                        <span class='input-group-addon'>
-                            <span class='glyphicon glyphicon-time'></span>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class='col-sm-4'>
-                <div class='form-group'>
-                    <div class='input-group date'>
-                        <input type='text' class='form-control input-lg datetimepicker end-time' placeholder='End Date and Time'/>
-                        <span class='input-group-addon'>
-                            <span class='glyphicon glyphicon-time'></span>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class='col-sm-1'>
-                <button type='button' class='btn btn-lg btn-danger deletebutton'>
-                  <span class='glyphicon glyphicon-trash'></span>&nbsp;
-                </button>
-              </div>
-          </div>
-        </script>
-
+        <% 3.times do |n| %>
+          <%= render 'scheduly/milestone', counter: n %>
+        <% end %>
       </div>
 
       <div class="container">
@@ -199,6 +72,39 @@
     <footer>
       <p>&copy; Nusii Engineering Project 2015 | Learn more about Nusii <a href="www.nusii.com" target="_blank">here</a>!</p>
     </footer>
+
+    <script id="milestone_template" type="x-tmpl-mustache">
+      <div class='row milestone'>
+        <div class='col-sm-3'>
+          <input type='text' name='milestone[{{counter}}][name]' class='form-control input-lg milestonename' placeholder='Name of Milestone' />
+        </div>
+        <div class='col-sm-4'>
+            <div class='form-group'>
+                <div class='input-group date datetimepicker' id='end{{counter}}' >
+                    <input type='text' name='milestone[{{counter}}][end-time]'class='form-control input-lg end-time' placeholder='End Date and Time'/>
+                    <span class='input-group-addon'>
+                        <span class='glyphicon glyphicon-time'></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class='col-sm-4'>
+            <div class='form-group'>
+                <div class='input-group date datetimepicker' id='start{{counter}}'>
+                    <input type='text' name='milestone[{{counter}}][start-time]' class='form-control input-lg start-time' placeholder='Start Date and Time'/>
+                    <span class='input-group-addon'>
+                        <span class='glyphicon glyphicon-time'></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class='col-sm-1'>
+            <button type='button' class='btn btn-lg btn-danger deletebutton'>
+              <span class='glyphicon glyphicon-trash'></span>&nbsp;
+            </button>
+          </div>
+      </div>
+    </script>
 
   </body>
 </html>
