@@ -1,4 +1,6 @@
 var counter = 3;
+var date = new Date();
+date.setDate(date.getDate()-1);
 
 $(document).ready(function () {
   initDateTimePickers();
@@ -68,15 +70,20 @@ var initDateTimePickers = function(){
 
 var initLinkagesOnClick = function (){
   $('.start_datetimepicker').on("dp.change", function(e){
+    $(e.currentTarget).parents('.milestone').find('.start_datetimepicker').data("DateTimePicker").minDate(date);
     $(e.currentTarget).parents('.milestone').find('.end_datetimepicker').data("DateTimePicker").minDate(e.date);
   });
 };
 
 var initLinkageOnClick = function (element){
+  element.find('.start_datetimepicker').data("DateTimePicker").minDate(date);
   element.find('.start_datetimepicker').on("dp.change", function(e){
     element.find('.end_datetimepicker').data("DateTimePicker").minDate(e.date);
   });
 };
+
+
+
 
 
 var initAddMilestone = function() {
