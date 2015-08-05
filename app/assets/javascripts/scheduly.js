@@ -82,10 +82,6 @@ var initLinkageOnClick = function (element){
   });
 };
 
-
-
-
-
 var initAddMilestone = function() {
   $(document).on('click', '.add_milestone', function(e){
     e.preventDefault();

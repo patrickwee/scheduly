@@ -15,6 +15,7 @@
 //= require mustache
 //= require moment
 //= require bootstrap-datetimepicker
+//= require validation
 //= require scheduly
 //= require_self
 
