@@ -67,14 +67,14 @@ var initDateTimePickers = function(){
 
 
 var initLinkagesOnClick = function (){
-  $('.end_datetimepicker').on("dp.change", function(e){
-    $(e.currentTarget).parents('.milestone').find('.start_datetimepicker').data("DateTimePicker").minDate(e.date);
+  $('.start_datetimepicker').on("dp.change", function(e){
+    $(e.currentTarget).parents('.milestone').find('.end_datetimepicker').data("DateTimePicker").minDate(e.date);
   });
 };
 
 var initLinkageOnClick = function (element){
-  element.find('.end_datetimepicker').on("dp.change", function(e){
-    element.find('.start_datetimepicker').data("DateTimePicker").minDate(e.date);
+  element.find('.start_datetimepicker').on("dp.change", function(e){
+    element.find('.end_datetimepicker').data("DateTimePicker").minDate(e.date);
   });
 };
 
