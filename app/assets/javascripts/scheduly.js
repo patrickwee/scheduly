@@ -5,11 +5,7 @@ $(document).ready(function () {
   initDeleteButtons();
   initAddMilestone();
   initDownloadCSVForm();
-
-  initLinkagesOnClick(0);
-  initLinkagesOnClick(1);
-  initLinkagesOnClick(2);
-
+  initLinkagesOnClick();
 });
 
 //*************
@@ -70,18 +66,15 @@ var initDateTimePickers = function(){
 };
 
 
-var initLinkagesOnClick = function (number){
-  console.log("inside linkages on click");
-  startnow = "#start" + number;
-  console.log(startnow);
-  endnow = "#end" + number;
-  console.log(endnow);
-
-  $(startnow).on("dp.change", function (e) {
-    $(endnow).data("DateTimePicker").minDate(e.date);
+var initLinkagesOnClick = function (){
+  $('.end_datetimepicker').on("dp.change", function(e){
+    $(e.currentTarget).parents('.milestone').find('.start_datetimepicker').data("DateTimePicker").minDate(e.date);
   });
-  $(endnow).on("dp.change", function (e) {
-    $(startnow).data("DateTimePicker").maxDate(e.date);
+};
+
+var initLinkageOnClick = function (element){
+  element.find('.end_datetimepicker').on("dp.change", function(e){
+    element.find('.start_datetimepicker').data("DateTimePicker").minDate(e.date);
   });
 };
 
@@ -109,7 +102,7 @@ var addMileStone = function(){
   milestone = $(rendered);
   $('.milestones').append(milestone);
   initDateTimePickers();
-  initLinkagesOnClick(counter);
+  initLinkageOnClick(milestone);
 
   counter++;
 };

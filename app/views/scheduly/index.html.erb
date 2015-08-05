@@ -74,36 +74,7 @@
     </footer>
 
     <script id="milestone_template" type="x-tmpl-mustache">
-      <div class='row milestone'>
-        <div class='col-sm-3'>
-          <input type='text' name='milestone[{{counter}}][name]' class='form-control input-lg milestonename' placeholder='Name of Milestone' />
-        </div>
-        <div class='col-sm-4'>
-            <div class='form-group'>
-                <div class='input-group date datetimepicker' id='end{{counter}}' >
-                    <input type='text' name='milestone[{{counter}}][end-time]'class='form-control input-lg end-time' placeholder='End Date and Time'/>
-                    <span class='input-group-addon'>
-                        <span class='glyphicon glyphicon-time'></span>
-                    </span>
-                </div>
-            </div>
-        </div>
-        <div class='col-sm-4'>
-            <div class='form-group'>
-                <div class='input-group date datetimepicker' id='start{{counter}}'>
-                    <input type='text' name='milestone[{{counter}}][start-time]' class='form-control input-lg start-time' placeholder='Start Date and Time'/>
-                    <span class='input-group-addon'>
-                        <span class='glyphicon glyphicon-time'></span>
-                    </span>
-                </div>
-            </div>
-        </div>
-        <div class='col-sm-1'>
-            <button type='button' class='btn btn-lg btn-danger deletebutton'>
-              <span class='glyphicon glyphicon-trash'></span>&nbsp;
-            </button>
-          </div>
-      </div>
+      <%= render 'scheduly/milestone', counter: '{{counter}}' %>
     </script>
 
   </body>
